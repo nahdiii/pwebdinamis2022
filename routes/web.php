@@ -22,4 +22,6 @@ route::get('/registrasi-akun-baru',[ LoginController::class,'halamanRegistrasi' 
 route::get('/data-pengguna',[ PenggunaController::class,'dataPengguna' ]);
 route::get('/tambah-pengguna',[ PenggunaController::class,'tambahPengguna' ]);
 route::post('/simpan-pengguna',[ PenggunaController::class,'simpanPengguna' ]);
-
+route::get('/ubah-pengguna/{id}',[ PenggunaController::class,'ubahPengguna' ]);
+route::post('/simpan-perubahan/{id}',[ PenggunaController::class,'simpanPerubahan' ]);
+route::get('/hapus-pengguna/{id}',[ PenggunaController::class,'hapusPengguna' ]);

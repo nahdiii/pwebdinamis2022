@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Pengguna</title>
+    <title>Ubah Data Pengguna</title>
 
     @include('tools.head')
 </head>
@@ -33,46 +33,29 @@
                     {{-- <h1 class="h3 mb-4 text-gray-800">Data Pengguna</h1> --}}
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pengguna</h6>
-                            <div class="dropdown no-arrow">
-                                <a class="dropdown-toggle" href="{{ url('tambah-pengguna') }}" aria-haspopup="true" aria-expanded="false">
-                                    Tambah
-                                </a>
-
-                            </div>
+                            <h6 class="m-0 font-weight-bold text-primary">Ubah Pengguna</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
-
-                                <table class="table table-bordered">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Nama</th>
-                                            <th>Level</th>
-                                            <th>Email</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach ($varUser as $item)
-                                        <tr>
-                                            <td> {{ $item->name }} </td>
-                                            <td>{{ $item->level }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td> <a href="{{ url('ubah-pengguna/'.$item->id) }}">Ubah</a> | <a href="{{ url('hapus-pengguna/'.$item->id) }}">Hapus</a> </td>
-                                        </tr>
-                                    @endforeach
-
-
-                                </table>
-
-                            </div>
-
-                                {{ $varUser->links() }}
-
-
+                            <form method="post" action="{{ url('simpan-perubahan/'.$varUsr->id) }}" >
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <input type="text" name="namapengguna" class="form-control form-control-user" id="exampleFirstName"
+                                        placeholder="Nama" value="{{ $varUsr->name }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="emailpengguna" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Email Address" value="{{ $varUsr->email }}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" required  name="passwordpengguna"  class="form-control form-control-user"
+                                        id="exampleInputPassword" placeholder="Password"  >
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Simpan
+                                </button>
+                            </form>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.container-fluid -->
 
