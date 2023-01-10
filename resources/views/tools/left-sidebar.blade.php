@@ -57,6 +57,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                 <a class="collapse-item" href="{{ url('data-pengguna') }}">Data Pengguna</a>
+                <a class="collapse-item" href="{{ url('data-kategori') }}">Ketegori</a>
 
             </div>
         </div>
