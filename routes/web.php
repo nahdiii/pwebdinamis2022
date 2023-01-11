@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BelajarController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenggunaController;
@@ -36,5 +37,14 @@ Route::middleware(['auth'])->group(function () {
 
     route::get('/data-kategori',[ KategoriController::class,'index' ]);
     route::get('/tambah-kategori',[ KategoriController::class,'create' ]);
+    route::post('/simpan-kategori',[ KategoriController::class,'store' ]);
+    route::get('/hapus-kategori/{id}',[ KategoriController::class,'destroy' ]);
 
+
+    route::get('/data-berita',[ BeritaController::class,'index' ]);
+    route::get('/tambah-berita',[ BeritaController::class,'create' ]);
+    route::post('/simpan-berita',[ BeritaController::class,'store' ]);
+    route::get('/ubah-berita/{id}',[ BeritaController::class,'edit' ]);
+    route::post('/simpan-berita/{id}',[ BeritaController::class,'update' ]);
+    route::get('/hapus-berita/{id}',[ BeritaController::class,'destroy' ]);
 });

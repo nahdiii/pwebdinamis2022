@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class BeritaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kate = Kategori::where('delstatus','=',true)->latest()->paginate(3);
-        return view('Kategori.data-kategori', compact('kate'));
+        $berita = Berita::where('delstatus','=',true)->latest()->paginate(3);
+        return view('Berita.data-berita', compact('berita'));
     }
 
     /**
@@ -25,7 +26,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        return view('Kategori.tambah-kategori');
+        $kate = Kategori::where('delstatus','=',true)->latest()->get();
+        return view('Berita.tambah-berita',compact('kate'));
     }
 
     /**
@@ -36,13 +38,7 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        Kategori::create([
-            'namakategori' => $request->namakategori,
-            'total' => 0,
-            'delstatus' => true,
-
-        ]);
-        return redirect('data-kategori');
+        dd($request->all());
     }
 
     /**
@@ -87,14 +83,6 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        // dd($id);
-        $varKate = Kategori::findOrFail($id);
-
-            $data = [
-                'delstatus' => false,
-            ];
-
-            $varKate->update($data);
-            return redirect('data-kategori');
+        //
     }
 }

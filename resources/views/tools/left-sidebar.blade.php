@@ -58,6 +58,7 @@
                 {{-- <h6 class="collapse-header">Custom Utilities:</h6> --}}
                 <a class="collapse-item" href="{{ url('data-pengguna') }}">Data Pengguna</a>
                 <a class="collapse-item" href="{{ url('data-kategori') }}">Ketegori</a>
+                <a class="collapse-item" href="{{ url('data-berita') }}">Data Berita</a>
 
             </div>
         </div>

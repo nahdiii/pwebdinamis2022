@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Data Kategori</title>
+    <title>Data Berita</title>
 
     @include('tools.head')
 </head>
@@ -33,9 +33,9 @@
                     {{-- <h1 class="h3 mb-4 text-gray-800">Data Pengguna</h1> --}}
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Kategori</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Berita</h6>
                             <div class="dropdown no-arrow">
-                                <a class="dropdown-toggle" href="{{ url('tambah-kategori') }}" aria-haspopup="true" aria-expanded="false">
+                                <a class="dropdown-toggle" href="{{ url('tambah-berita') }}" aria-haspopup="true" aria-expanded="false">
                                     Tambah
                                 </a>
 
@@ -47,17 +47,21 @@
                                 <table class="table table-bordered">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th>Nama Kategori</th>
-                                            <th>Jumlah</th>
+                                            <th>Tanggal</th>
+                                            <th>Judul</th>
+                                            <th>Kategori</th>
+                                            <th>oleh</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($kate as $item)
+                                    @foreach ($berita as $item)
                                         <tr>
-                                            <td> {{ $item->namakategori }} </td>
-                                            <td>{{ $item->total }}</td>
+                                            <td> {{ $item->tgl }} </td>
+                                            <td> {{ $item->judul }} </td>
+                                            <td>{{ $item->kategori_id }}</td>
+                                            <td>{{ $item->user_id }}</td>
 
-                                            <td> <a href="{{ url('ubah-pengguna/'.$item->id) }}">Ubah</a> | <a href="{{ url('hapus-kategori/'.$item->id) }}">Hapus</a> </td>
+                                            <td> <a href="{{ url('ubah-berita/'.$item->id) }}">Ubah</a> | <a href="{{ url('hapus-berita/'.$item->id) }}">Hapus</a> </td>
                                         </tr>
                                     @endforeach
 
@@ -66,7 +70,7 @@
 
                             </div>
 
-                                {{ $kate->links() }}
+                                {{ $berita->links() }}
 
 
                         </div>
