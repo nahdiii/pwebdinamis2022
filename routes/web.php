@@ -47,4 +47,6 @@ Route::middleware(['auth'])->group(function () {
     route::get('/ubah-berita/{id}',[ BeritaController::class,'edit' ]);
     route::post('/simpan-berita/{id}',[ BeritaController::class,'update' ]);
     route::get('/hapus-berita/{id}',[ BeritaController::class,'destroy' ]);
+
+    route::get('/berita/{url}',[ BeritaController::class,'lihatSingleBerita' ]);
 });

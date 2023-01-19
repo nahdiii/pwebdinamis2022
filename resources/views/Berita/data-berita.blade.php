@@ -58,10 +58,9 @@
                                         <tr>
                                             <td> {{ $item->tgl }} </td>
                                             <td> {{ $item->judul }} </td>
-                                            <td>{{ $item->kategori_id }}</td>
-                                            <td>{{ $item->user_id }}</td>
-
-                                            <td> <a href="{{ url('ubah-berita/'.$item->id) }}">Ubah</a> | <a href="{{ url('hapus-berita/'.$item->id) }}">Hapus</a> </td>
+                                            <td>{{ $item->kategori->namakategori }}</td>
+                                            <td>{{ $item->user->name}}</td>
+                                            <td> <a href="{{ url('berita/'.$item->url) }}" target="_blank">Lihat</a> |<a href="{{ url('ubah-berita/'.$item->id) }}">Ubah</a> | <a href="{{ url('hapus-berita/'.$item->id) }}">Hapus</a> </td>
                                         </tr>
                                     @endforeach
 
